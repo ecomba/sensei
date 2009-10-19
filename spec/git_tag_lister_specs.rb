@@ -14,6 +14,8 @@ describe GitTagLister, "when listing tags in a git repo containing tags" do
     `git add test.txt`
     `git commit -m "Added test file"`
     `git tag otherOne`
+    Dir.chdir '/home'
+    @tags = GitTagLister.new("/tmp/foo").tags
   end
   
   after do
@@ -21,7 +23,11 @@ describe GitTagLister, "when listing tags in a git repo containing tags" do
   end
   
   it "should list the available tags" do
-    GitTagLister.new("/tmp/foo").tags.should == ["otherOne", "tag-1"]
+    @tags.should == ["otherOne", "tag-1"]
+  end
+  
+  it "should put the pwd back when it's done" do
+    Dir.pwd.should == '/home'
   end
   
 end

@@ -4,6 +4,10 @@ class GitTagLister
   end
   
   def tags
-    `git tag`.split "\n"
+    old_pwd = Dir.pwd
+    Dir.chdir @path
+    tags = `git tag`.split "\n"
+    Dir.chdir old_pwd
+    tags
   end
 end
