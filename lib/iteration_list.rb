@@ -1,3 +1,5 @@
+require 'git_tag_lister'
+
 class IterationList
   def initialize(path)
     @path = path

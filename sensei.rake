@@ -1,4 +1,5 @@
-# Your project should respond to 'rake spec' and 'cucumber features'.
+$:.unshift(File.dirname(__FILE__)+"/lib")
+require 'iteration_list'
 
 task :dojo do
   run_dojo(RealGit.new)
@@ -68,7 +69,8 @@ class Dojo
   end
   
   def run
-    until @iteration > 5
+    @max_iterations = IterationList.new(Dir.pwd).iterations
+    until @iteration > @max_iterations
 
       run_cukes
       unless @cukes_passed 
@@ -84,7 +86,7 @@ class Dojo
       end
 
       if success?
-        if @iteration < 5
+        if @iteration < @max_iterations
           commit("iteration #{@iteration} tests passing.")
 
           puts
