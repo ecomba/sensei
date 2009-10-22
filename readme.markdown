@@ -6,10 +6,10 @@ This should replicate an outside-in development style, where the cucumber featur
 
 # Running a dojo
 
-    git clone git://github.com/alexscordellis/sensei.git
+    gem install sensei
     git clone git://github.com/alexscordellis/kata-minesweeper.git (or other dojo repository)
     cd kata-minesweeper
-    rake -f ../sensei/sensei.rake dojo
+    sensei
 
 Then follow the instructions. Each time you get to green, sensei will make a commit to git. This way you'll have a history of all your implementation and refactorings. You could then push those changes to a github fork of the dojo repository and compare your solution to others'.
 
