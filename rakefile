@@ -8,3 +8,26 @@ Spec::Rake::SpecTask.new do |t|
   t.spec_files = FileList["spec/**/*.rb"]
   t.spec_opts = ['--format specdoc --color']
 end
+
+begin
+  require 'jeweler'
+  Jeweler::Tasks.new do |gemspec|
+    gemspec.name = "sensei"
+    gemspec.summary = "Sensei runs your coding dojo for you."
+    gemspec.description = "Sensei runs your dojo for you. You start with a single failing cucumber feature. As you make each feature pass, the next feature is brought into play. While you have failing features, you have the opportunity to write rspec specifications. Sensei will encourage you to refactor at appropriate moments, showing you your flog score as encouragement."
+    gemspec.email = "alex.scordellis@gmail.com"
+    gemspec.homepage = "http://github.com/alexscordellis/sensei"
+    gemspec.authors = ["Alex Scordellis"]
+    
+    # gemspec.test_files = Dir['spec/**/*'] + Dir['spec/*']
+
+    gemspec.add_dependency('rake', '>= 0.8.7')
+    gemspec.add_dependency('rspec', '>= 1.2.6')
+    gemspec.add_dependency('cucumber', '>= 0.3.3')
+    gemspec.add_dependency('flog', '>= 2.1.0')
+    
+  end
+  Jeweler::GemcutterTasks.new
+rescue LoadError
+  puts "Jeweler not available. Install it with: sudo gem install jeweler"
+end
