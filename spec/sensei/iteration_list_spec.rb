@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + "/spec_helper"
+require File.dirname(__FILE__) + "/../spec_helper"
 
 describe IterationList, "when listing sensei iterations in a git repo containing appropriate tags" do
   

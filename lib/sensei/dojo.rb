@@ -1,37 +1,3 @@
-$:.unshift(File.dirname(__FILE__)+"/lib")
-require 'iteration_list'
-
-task :dojo do
-  run_dojo(RealGit.new)
-end
-
-task :fake_dojo do
-  run_dojo(FakeGit.new)
-end
-
-
-class RealGit
-  def do command
-    system("git #{command}")
-  end
-end
-
-class FakeGit
-  def do command
-  end
-end
-
-
-def get_name
-  print "Enter your name: "
-  STDIN.gets
-end
-
-def run_dojo(git)
-  Dojo.new(get_name, git).run
-end
-
-
 class Dojo
   
   def initialize(name, git)
