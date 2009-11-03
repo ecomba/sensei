@@ -50,9 +50,9 @@ The original idea came from [Matt Wynne](http://blog.mattwynne.net/)'s session a
 
 # Future plans
 
-* Package as a gem
+* Get gem published somewhere
 * Provide online repository of known katas
-* Add reset functionality (reset current iteration, or reset whole kata).
+* Add reset functionality (reset current iteration, or reset whole kata, cleaning up branches).
 * Autodetect number of iterations (currently assumes 5).
 
 Ultimately the user should be able to do something like:
